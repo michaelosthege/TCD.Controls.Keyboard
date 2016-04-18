@@ -19,4 +19,23 @@ The control is based on the DigitalSignage UWP app from the UWP samples (https:/
   * KeyAssignmentSet.cs was restructured to allow for additional keyboard layouts
 * IsEnabled property of all keys regulates activation/deactivation when a TextBox is focused/unfocused
 
+### Usage
 
+```XML
+<oks:OnScreenKeyBoard x:Name="keyboard" InitialLayout="German" Margin="20" />
+```
+
+Register all textboxes and password boxes with the keyboard. (The keyboard subscribes to GotFocus and LostFocus.)
+
+```csharp
+// in your MainPage constructor 
+keyboard.RegisterTarget(textBox1); 
+keyboard.RegisterTarget(textBox2); 
+keyboard.RegisterTarget(passwordBox1);
+```
+
+### Result
+
+This is what it looks like:
+
+![Screenshot](/images/screenshot1.png) Format: ![a screenshot](url)
