@@ -38,4 +38,4 @@ keyboard.RegisterTarget(passwordBox1);
 
 This is what it looks like:
 
-![Screenshot](/images/screenshot1.png) Format: ![a screenshot](url)
+![Screenshot](/images/screenshot1.png)
