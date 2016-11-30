@@ -26,7 +26,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:TCD.Controls.Keyboard"
     mc:Ignorable="d"
-    Height="264" Width="720" d:DesignHeight="264" d:DesignWidth="720">
+    Height="264" Width="720" d:DesignHeight="264" d:DesignWidth="720" Visibility="{Binding IsVisible}">
 
     <UserControl.Resources>
         <local:BoolToSolidBrushConverter x:Key="BoolToSolidBrushConverter" />

@@ -44,6 +44,20 @@ namespace TCD.Controls.Keyboard
 
 
         #region Keyboard States
+        private Visibility _isVisible;
+        public Visibility IsVisible
+        {
+            get
+            {
+                return this._isVisible;
+            }
+            set
+            {
+                this._isVisible = value;
+                base.Notify("IsVisible");
+            }
+        }
+
         public bool IsEnabled { get { return TargetBox != null; } }
 
         private bool _IsCapsLock;
