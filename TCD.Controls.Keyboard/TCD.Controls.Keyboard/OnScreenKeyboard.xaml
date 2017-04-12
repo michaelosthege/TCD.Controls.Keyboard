@@ -44,6 +44,15 @@
                 <Setter Property="Background" Value="Gray" />
                 <Setter Property="IsTabStop" Value="False" />
             </Style>
+            <Style TargetType="RepeatButton">
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                <Setter Property="VerticalAlignment" Value="Stretch" />
+                <!--<Setter Property="Margin" Value="1" />-->
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="BorderBrush" Value="Black" />
+                <Setter Property="Background" Value="Gray" />
+                <Setter Property="IsTabStop" Value="False" />
+            </Style>
         </Grid.Resources>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -87,7 +96,7 @@
             <Button IsEnabled="{Binding IsEnabled}" Content="{Binding KB.KeyVK_0.Text}" Command="{Binding KeyPressedCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}" Grid.Column="10"/>
             <Button IsEnabled="{Binding IsEnabled}" Content="{Binding KB.KeyVK_OemMinus.Text}" Command="{Binding KeyPressedCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}" Grid.Column="11"/>
             <Button IsEnabled="{Binding IsEnabled}" Content="{Binding KB.KeyVK_OemPlus.Text}" Command="{Binding KeyPressedCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}" Grid.Column="12"/>
-            <Button IsEnabled="{Binding IsEnabled}" Content="&#x232B;" Command="{Binding BackspaceCommand}" Grid.Column="13"/>
+            <RepeatButton IsEnabled="{Binding IsEnabled}" Content="&#x232B;" Command="{Binding BackspaceCommand}" Grid.Column="13" Delay="300" Interval="50"/>
         </Grid>
         <!-- The 2nd row, upper-most letters (KeysRow2) -->
         <Grid Grid.Row="1">
