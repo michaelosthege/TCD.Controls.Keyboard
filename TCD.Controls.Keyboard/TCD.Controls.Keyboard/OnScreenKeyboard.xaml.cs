@@ -1,7 +1,4 @@
-﻿
-
-using Windows.Foundation;
-/**
+﻿/**
 Copyright(c) Microsoft Open Technologies, Inc.All rights reserved.
 Modified by Michael Osthege (2016)
 The MIT License(MIT)
@@ -24,6 +21,7 @@ THE SOFTWARE.
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
+using Windows.Foundation;
 
 namespace TCD.Controls.Keyboard
 {
