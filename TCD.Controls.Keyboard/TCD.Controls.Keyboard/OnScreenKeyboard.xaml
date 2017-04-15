@@ -26,7 +26,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:TCD.Controls.Keyboard"
     mc:Ignorable="d"
-    Height="264" Width="720" d:DesignHeight="264" d:DesignWidth="720">
+    Height="264" Width="720" d:DesignHeight="264" d:DesignWidth="720" Visibility="{Binding IsVisible}">
 
     <UserControl.Resources>
         <local:BoolToSolidBrushConverter x:Key="BoolToSolidBrushConverter" />
@@ -36,6 +36,15 @@
     <Grid Name="LayoutRoot" Margin="6,2,6,0">
         <Grid.Resources>
             <Style TargetType="Button">
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                <Setter Property="VerticalAlignment" Value="Stretch" />
+                <!--<Setter Property="Margin" Value="1" />-->
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="BorderBrush" Value="Black" />
+                <Setter Property="Background" Value="Gray" />
+                <Setter Property="IsTabStop" Value="False" />
+            </Style>
+            <Style TargetType="RepeatButton">
                 <Setter Property="HorizontalAlignment" Value="Stretch" />
                 <Setter Property="VerticalAlignment" Value="Stretch" />
                 <!--<Setter Property="Margin" Value="1" />-->
@@ -87,7 +96,7 @@
             <Button IsEnabled="{Binding IsEnabled}" Content="{Binding KB.KeyVK_0.Text}" Command="{Binding KeyPressedCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}" Grid.Column="10"/>
             <Button IsEnabled="{Binding IsEnabled}" Content="{Binding KB.KeyVK_OemMinus.Text}" Command="{Binding KeyPressedCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}" Grid.Column="11"/>
             <Button IsEnabled="{Binding IsEnabled}" Content="{Binding KB.KeyVK_OemPlus.Text}" Command="{Binding KeyPressedCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}" Grid.Column="12"/>
-            <Button IsEnabled="{Binding IsEnabled}" Content="&#x232B;" Command="{Binding BackspaceCommand}" Grid.Column="13"/>
+            <RepeatButton IsEnabled="{Binding IsEnabled}" Content="&#x232B;" Command="{Binding BackspaceCommand}" Grid.Column="13" Delay="300" Interval="50"/>
         </Grid>
         <!-- The 2nd row, upper-most letters (KeysRow2) -->
         <Grid Grid.Row="1">

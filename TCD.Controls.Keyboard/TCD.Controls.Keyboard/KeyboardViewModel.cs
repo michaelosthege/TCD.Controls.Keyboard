@@ -44,6 +44,20 @@ namespace TCD.Controls.Keyboard
 
 
         #region Keyboard States
+        private Visibility _isVisible;
+        public Visibility IsVisible
+        {
+            get
+            {
+                return this._isVisible;
+            }
+            set
+            {
+                this._isVisible = value;
+                base.Notify("IsVisible");
+            }
+        }
+
         public bool IsEnabled { get { return TargetBox != null; } }
 
         private bool _IsCapsLock;
@@ -184,6 +198,12 @@ namespace TCD.Controls.Keyboard
                                 box.SelectionStart = currentSelectionStart - 1;//move the cursor one position left
                             }
                         }
+                        else if (TargetBox is AutoSuggestBox)
+                        {
+                            AutoSuggestBox box = (TargetBox as AutoSuggestBox);
+                            if (box.Text.Length > 0)
+                                box.Text = box.Text.Remove(box.Text.Length - 1);
+                        }
                         else if (TargetBox is PasswordBox)
                         {
                             PasswordBox box = (TargetBox as PasswordBox);
@@ -241,6 +261,11 @@ namespace TCD.Controls.Keyboard
                             box.Text = text.Insert(currentSelectionStart, (string)arg);
                             box.SelectionLength = 0;
                             box.SelectionStart = currentSelectionStart + 1;//move the cursor to behind the new character(s in case of return)
+                        }
+                        else if (TargetBox is AutoSuggestBox)
+                        {
+                            AutoSuggestBox box = (TargetBox as AutoSuggestBox);
+                            box.Text = box.Text += (string)arg;
                         }
                         else if (TargetBox is PasswordBox)
                         {
